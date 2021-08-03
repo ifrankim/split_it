@@ -12,7 +12,11 @@ class SplashPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.gradients.background),
         child: Center(
-          child: Text("SplashPage"),
+          child: Image.asset(
+            "assets/images/Logo.png",
+            width: 128,
+            height: 112,
+          ),
         ),
       ),
     );
