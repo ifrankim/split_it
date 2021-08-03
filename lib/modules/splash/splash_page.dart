@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:split_it/theme/app_gradients.dart';
+import 'package:split_it/theme/app_theme.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -6,7 +8,13 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("SplashPage")),
+      // backgroundColor: AppTheme.colors.background,
+      body: Container(
+        decoration: BoxDecoration(gradient: AppTheme.gradients.background),
+        child: Center(
+          child: Text("SplashPage"),
+        ),
+      ),
     );
   }
 }
