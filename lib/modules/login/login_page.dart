@@ -14,12 +14,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.colors.backgroundPrimary,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 40),
-            child: Row(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
               children: [
                 Container(
                   width: 236,
@@ -33,58 +33,124 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-          ),
-          Column(
-            children: [
-              ListTile(
-                leading: Text(
-                  "😍",
-                  style: GoogleFonts.inter(
-                      fontSize: 40, fontWeight: FontWeight.w400),
+            Column(
+              children: [
+                Container(
+                  child: ListTile(
+                    leading: Text(
+                      "😍",
+                      style: GoogleFonts.inter(
+                          fontSize: 40, fontWeight: FontWeight.w400),
+                    ),
+                    title: Text(
+                      "Faça seu login com as contas abaixo",
+                      style: GoogleFonts.inter(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: AppTheme.colors.button),
+                    ),
+                  ),
                 ),
-                title: Text(
-                  "Faça seu login com as contas abaixo",
-                  style: GoogleFonts.inter(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: AppTheme.colors.button),
+                SizedBox(
+                  height: 32,
                 ),
-              ),
-              SizedBox(
-                height: 32,
-              ),
-              ElevatedButton.icon(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          AppTheme.colors.backgroundPrimary)),
-                  onPressed: () {},
-                  icon: Image.asset("assets/images/google-icon-1.png"),
-                  label: Text(
-                    "Entrar com Google",
-                    style: GoogleFonts.inter(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppTheme.colors.button),
-                  )),
-              SizedBox(
-                height: 12,
-              ),
-              ElevatedButton.icon(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          AppTheme.colors.backgroundPrimary)),
-                  onPressed: () {},
-                  icon: Image.asset("assets/images/apple-1.png"),
-                  label: Text(
-                    "Entrar com Apple",
-                    style: GoogleFonts.inter(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppTheme.colors.button),
-                  ))
-            ],
-          ),
-        ],
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.fromBorderSide(
+                          BorderSide(color: AppTheme.colors.border))),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 56,
+                        height: 56,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 17,
+                            ),
+                            Image.asset("assets/images/google-icon-1.png"),
+                            SizedBox(
+                              width: 18,
+                            ),
+                            Container(
+                              width: 1,
+                              color: AppTheme.colors.border,
+                            )
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          child: Center(
+                            child: Text(
+                              "Entrar com Google",
+                              style: GoogleFonts.inter(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppTheme.colors.button),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.fromBorderSide(
+                          BorderSide(color: AppTheme.colors.border))),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 56,
+                        height: 56,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 16,
+                            ),
+                            Image.asset("assets/images/apple-1.png"),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Container(
+                              width: 1,
+                              color: AppTheme.colors.border,
+                            )
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          child: Center(
+                            child: Text(
+                              "Entrar com Apple",
+                              style: GoogleFonts.inter(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppTheme.colors.button),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
