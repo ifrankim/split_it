@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:split_it/modules/login/widgets/social_button.dart';
 import 'package:split_it/theme/app_theme.dart';
 
 class LoginPage extends StatefulWidget {
@@ -24,11 +25,8 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   width: 236,
                   child: Text(
-                    "Divida contas com seus amigos",
-                    style: GoogleFonts.montserrat(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w700,
-                        color: AppTheme.colors.title),
+                    "Divida suas contas com seus amigos",
+                    style: AppTheme.textStyles.title,
                   ),
                 ),
               ],
@@ -44,108 +42,23 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     title: Text(
                       "Faça seu login com as contas abaixo",
-                      style: GoogleFonts.inter(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: AppTheme.colors.button),
+                      style: AppTheme.textStyles.button,
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 32,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.fromBorderSide(
-                          BorderSide(color: AppTheme.colors.border))),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 56,
-                        height: 56,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 17,
-                            ),
-                            Image.asset("assets/images/google-icon-1.png"),
-                            SizedBox(
-                              width: 18,
-                            ),
-                            Container(
-                              width: 1,
-                              color: AppTheme.colors.border,
-                            )
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          child: Center(
-                            child: Text(
-                              "Entrar com Google",
-                              style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppTheme.colors.button),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                SocialButton(
+                  imagePath: "assets/images/google-icon-1.png",
+                  label: "Entrar com Google",
                 ),
                 SizedBox(
                   height: 12,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.fromBorderSide(
-                          BorderSide(color: AppTheme.colors.border))),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 56,
-                        height: 56,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 16,
-                            ),
-                            Image.asset("assets/images/apple-1.png"),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Container(
-                              width: 1,
-                              color: AppTheme.colors.border,
-                            )
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          child: Center(
-                            child: Text(
-                              "Entrar com Apple",
-                              style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppTheme.colors.button),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                SocialButton(
+                  imagePath: "assets/images/apple-1.png",
+                  label: "Entrar com Apple",
                 ),
               ],
             ),
