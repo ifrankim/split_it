@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:split_it/modules/login/login_controller.dart';
+import 'package:split_it/modules/login/login_state.dart';
 import 'package:split_it/modules/login/widgets/social_button.dart';
 import 'package:split_it/theme/app_theme.dart';
 
@@ -14,7 +14,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final loginController = LoginController();
+  late LoginController loginController;
+
+  @override
+  void initState() {
+    loginController = LoginController(onUpdate: () {
+      setState(() {});
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,13 +62,18 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 32,
                 ),
-                SocialButton(
-                  imagePath: "assets/images/google-icon-1.png",
-                  label: "Entrar com Google",
-                  onTap: () async {
-                    await loginController.googleSignIn();
-                  },
-                ),
+                if (loginController.state is LoginStateLoading) ...[
+                  CircularProgressIndicator(),
+                ] else if (loginController.state is LoginStateError) ...[
+                  Text((loginController.state as LoginStateError).message),
+                ] else
+                  SocialButton(
+                    imagePath: "assets/images/google-icon-1.png",
+                    label: "Entrar com Google",
+                    onTap: () async {
+                      await loginController.googleSignIn();
+                    },
+                  ),
                 SizedBox(
                   height: 12,
                 ),
