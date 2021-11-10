@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColorsBase {
+  Color get white;
   Color get backgroundSecondary;
   Color get backgroundPrimary;
   Color get title;
@@ -9,6 +10,9 @@ abstract class AppColorsBase {
 }
 
 class AppColorsDefault implements AppColorsBase {
+  @override
+  Color get white => Color(0xFFFFFFFF);
+
   @override
   Color get backgroundPrimary => Color(0xFFFFFFFF);
 

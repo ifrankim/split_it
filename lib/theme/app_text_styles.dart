@@ -4,7 +4,9 @@ import 'package:split_it/theme/app_theme.dart';
 
 abstract class AppTextStyles {
   TextStyle get title;
+  TextStyle get text;
   TextStyle get button;
+  TextStyle get textBold;
 }
 
 class AppTextStyleDefault implements AppTextStyles {
@@ -15,4 +17,12 @@ class AppTextStyleDefault implements AppTextStyles {
   @override
   TextStyle get button => GoogleFonts.inter(
       fontSize: 16, fontWeight: FontWeight.w400, color: AppTheme.colors.button);
+
+  @override
+  TextStyle get text => GoogleFonts.inter(
+      fontSize: 20, fontWeight: FontWeight.w400, color: AppTheme.colors.white);
+
+  @override
+  TextStyle get textBold => GoogleFonts.inter(
+      fontSize: 20, fontWeight: FontWeight.w700, color: AppTheme.colors.white);
 }
